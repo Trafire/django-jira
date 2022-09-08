@@ -2,15 +2,12 @@ import os
 import tempfile
 from typing import Any, IO
 
-from dotenv import load_dotenv  # type: ignore
-
 import nox
 from nox import Session
 
-load_dotenv()
-
 nox.options.sessions = "black", "lint", "tests"
 locations = "src", "tests", "noxfile.py"
+
 
 class CustomNamedTemporaryFile:
     """Alternative Temp file to allow compatibility with windows.
