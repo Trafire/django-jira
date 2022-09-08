@@ -75,7 +75,7 @@ def install_with_constraints(session: Session, *args: str, **kwargs: Any) -> Non
 def tests(session: Session) -> None:
     """Run the test suite."""
     args = session.posargs or ["--cov", "-m", "not e2e"]
-    session.run("poetry", "install", "--no-dev", external=True)
+    session.run("poetry", "install", external=True)
     session.run("pytest", *args)
 
 
