@@ -12,7 +12,6 @@ load_dotenv()
 nox.options.sessions = "black", "lint", "tests"
 locations = "src", "tests", "noxfile.py"
 
-
 class CustomNamedTemporaryFile:
     """Alternative Temp file to allow compatibility with windows.
 
@@ -68,6 +67,7 @@ def install_with_constraints(session: Session, *args: str, **kwargs: Any) -> Non
             f"--output={requirements.name}",
             external=True,
         )
+        print(requirements.name)
         session.install(f"--constraint={requirements.name}", *args, **kwargs)
 
 
@@ -75,7 +75,8 @@ def install_with_constraints(session: Session, *args: str, **kwargs: Any) -> Non
 def tests(session: Session) -> None:
     """Run the test suite."""
     args = session.posargs or ["--cov", "-m", "not e2e"]
-    session.run("poetry", "install", external=True)
+    session.run("poetry", "install", "--no-dev", external=True)
+    session.install("coverage[toml]", "pytest", "pytest-cov", "pytest-mock")
     session.run("pytest", *args)
 
 
