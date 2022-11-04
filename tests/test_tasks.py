@@ -9,11 +9,11 @@ def test_authentication():
 
 
 def get_boards():
-    email = os.environ.get("jira_email")
-    token = os.environ.get("jira_token")
-    server = os.environ.get("jira_server")
-    board_name = os.environ.get("jira_board_name")
-    project_key = os.environ.get("jira_project_key")
+    email = os.environ.get("JIRA_EMAIL")
+    token = os.environ.get("JIRA_TOKEN")
+    server = os.environ.get("JIRA_SERVER")
+    board_name = os.environ.get("JIRA_BOARD_NAME")
+    project_key = os.environ.get("JIRA_PROJECT_KEY")
     return JiraTask(server, email, token, board_name, project_key)
 
 

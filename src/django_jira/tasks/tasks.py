@@ -159,11 +159,11 @@ class JiraTask(JIRA):
 
 
 def create_connection():
-    email = os.environ.get("jira_email")
-    token = os.environ.get("jira_token")
-    server = os.environ.get("jira_server")
-    board_name = os.environ.get("jira_board_name")
-    project_key = os.environ.get("jira_project_key")
+    email = os.environ.get("JIRA_EMAIL")
+    token = os.environ.get("JIRA_TOKEN")
+    server = os.environ.get("JIRA_SERVER")
+    board_name = os.environ.get("JIRA_BOARD_NAME")
+    project_key = os.environ.get("JIRA_PROJECT_KEY")
     # all environment variables must be set
     assert all((email, token, server, board_name, project_key))
     return JiraTask(server, email, token, board_name, project_key)
