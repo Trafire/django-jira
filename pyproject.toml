@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django-jira"
-version = "0.2.5"
+version = "0.2.6"
 description = "Intergrates Jira library into django microservices"
 authors = ["Antoine Wood <antoinewood@gmail.com>"]
 readme = "README.md"
